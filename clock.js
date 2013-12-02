@@ -5,6 +5,7 @@ function wordclock() {
   var hour = (mins <= 30) ? date.getHours() : date.getHours() + 1;	
   var desc = (mins <= 30) ? "past" : "to";
   var xmin = (mins <= 30) ? rmin : (60 - rmin);
+  var desc = (xmin == 15) ? desc+", .a" : desc;
   jQuery.when(jQuery(".active").removeClass("active")).then(function() {
     jQuery(".min"+xmin+", .hr"+hour+", ."+desc).addClass("active");		
   });		
