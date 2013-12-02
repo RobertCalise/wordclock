@@ -2,7 +2,7 @@ function wordclock() {
   var date = new Date;
   var mins = date.getMinutes();	
   var rmin = 5 * Math.round(mins/5); // Round to nearest 5 minutes.
-  var hour = (mins <= 30) ? date.getHours() : date.getHours() + 1;	
+  var hour = (rmin <= 30) ? date.getHours() : date.getHours() + 1;	
   var desc = "";
   if(rmin == 0) {
 	desc = "oclock";
