@@ -3,7 +3,14 @@ function wordclock() {
   var mins = date.getMinutes();	
   var rmin = 5 * Math.round(mins/5); // Round to nearest 5 minutes.
   var hour = (mins <= 30) ? date.getHours() : date.getHours() + 1;	
-  var desc = (mins <= 30) ? "past" : "to";
+  var desc = "";
+  if(rmin == 0) {
+	desc = "oclock";
+  } else if(rmin <= 30) {
+	desc = "past";
+  } else {
+    desc = "to";
+  }
   var xmin = (mins <= 30) ? rmin : (60 - rmin);
   var desc = (xmin == 15) ? desc+", .a" : desc;
   jQuery.when(jQuery(".active").removeClass("active")).then(function() {
