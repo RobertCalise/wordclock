@@ -65,6 +65,9 @@ function wordclock() {
 	  } else {
 	  	  mins = 60 - mins;
 	  	  minword = toWords(mins).toUpperCase().split(' ');
+	  	  hour = ((date.getHours() + 1) > 12) ? (date.getHours()+1)-12 : date.getHours() + 1;
+	  	  hour = toWords(hour).toUpperCase().replace(/ /g,'');
+
  	  	  jQuery.each(minword, function(key, val) {
 	 	  	  lines.push(word(val)+rstring(11-val.length));
  	  	  });
