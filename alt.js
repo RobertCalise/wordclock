@@ -63,6 +63,8 @@ function wordclock() {
 		  lines.push(rstring(11-minlabel.length)+word(minlabel));
 		  lines.push(rstring(7)+word('PAST'));	  
 	  } else {
+	  	  mins = 60 - mins;
+	  	  minword = toWords(mins).toUpperCase().split(' ');
  	  	  jQuery.each(minword, function(key, val) {
 	 	  	  lines.push(word(val)+rstring(11-val.length));
  	  	  });
@@ -72,7 +74,6 @@ function wordclock() {
 	  }
 	  lines.push(rstring(11));
 	  lines.push(word(hour)+rstring(11-hour.length));  
-	  lines.push(rstring(11)); // Blank line.
 	  lines.push(rstring(11)); // Blank line.
   }  
     
